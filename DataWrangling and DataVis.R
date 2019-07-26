@@ -7,20 +7,6 @@ episodes <- dragracer::rpdr_ep
 contep <- dragracer::rpdr_contep
 contestants <- dragracer::rpdr_contestants
 
-## Astrology Information Source: https://www.allure.com/story/zodiac-sign-personality-traits-dates
-##################################################################################################
-contestants$sameYear <- ymd(gsub("....-","2000-",contestants$dob))
-signIntervals <- c(interval(ymd("2000-01-20"), ymd("2000-02-18")), interval(ymd("2000-02-19"), ymd("2000-03-20")),
-                   interval(ymd("2000-03-21"), ymd("2000-04-19")), interval(ymd("2000-04-20"), ymd("2000-05-20")),
-                   interval(ymd("2000-05-21"), ymd("2000-06-20")), interval(ymd("2000-06-21"), ymd("2000-07-22")),
-                   interval(ymd("2000-07-23"), ymd("2000-08-22")), interval(ymd("2000-08-23"), ymd("2000-09-22")),
-                   interval(ymd("2000-09-23"), ymd("2000-10-22")), interval(ymd("2000-10-23"), ymd("2000-11-21")),
-                   interval(ymd("2000-11-22"), ymd("2000-12-21")), interval(ymd("2000-12-22"), ymd("2000-12-31")),
-                   interval(ymd("2000-01-01"), ymd("2000-01-19")))
-signNames <- c("Aquarius","Pisces","Aries","Taurus","Gemini","Cancer","Leo","Virgo","Libra","Scorpio","Sagittarius","Capricorn","Capricorn")
-signdf <- data.frame(signNames, signIntervals)
-
-for (i in 1:13){contestants$signs[contestants$sameYear %within% signdf[i,2]] <- as.character(signdf[i,1])}
 ##################################################################################################
 ##################################################################################################
 
